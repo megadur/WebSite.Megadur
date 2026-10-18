@@ -3,104 +3,618 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raureif – 80s Gothic Rock & Coldwave | Offizielle Bandseite</title>
-  <meta name="description" content="Raureif: Sisters-of-Mercy-Drive, knarziger Flanger-Bass, schneidende Chorus-Gitarren und stoischer deutscher Bariton.">
+  <title>Raureif – Offizielle Bandseite & Diskografie | 80s Gothic Rock & Coldwave</title>
+  <meta name="description" content="Raureif: Sisters-of-Mercy-Drive, knarziger Flanger-Bass, schneidende Chorus-Gitarren und stoischer Bariton (Bird). Alle 3 Tracks mit Audio-Hooks & Songtexten.">
   <link rel="stylesheet" href="../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #e2e8f0;
-      --accent-glow: rgba(226, 232, 240, 0.3);
+      --accent: #f8fafc;
+      --accent-glow: rgba(255, 255, 255, 0.35);
+      --bg-dark: #050506;
+      --card-bg: #0d0d10;
+      --card-border: rgba(255, 255, 255, 0.18);
     }
-    body { background: #08080a; color: #f8fafc; }
+    body {
+      background: var(--bg-dark);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-bottom: 90px;
+    }
     .hero-rr {
-      background: radial-gradient(circle at center, rgba(226, 232, 240, 0.12), transparent 70%);
-      padding: 60px 0 40px;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.12), transparent 70%);
+      padding: 50px 20px 30px;
       text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     }
-    .cover-box {
-      max-width: 440px;
-      margin: 0 auto 30px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px var(--accent-glow);
-      border: 3px solid var(--accent);
-    }
-    .cover-box img { width: 100%; display: block; filter: grayscale(100%) contrast(110%); }
     .goth-badge {
       display: inline-block;
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
       color: #fff;
-      font-weight: 800;
-      padding: 6px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 18px;
       border-radius: 20px;
       letter-spacing: 0.15em;
-      margin-bottom: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .lyrics-box {
-      background: #111114;
+    .band-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: clamp(40px, 7vw, 68px);
+      font-weight: 900;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .band-sub {
+      font-size: 18px;
+      color: #cbd5e1;
+      margin: 10px 0 24px;
+      font-weight: 500;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn-rr-primary {
+      background: #f8fafc;
+      color: #050506;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px var(--accent-glow);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-rr-primary:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+    }
+    .btn-rr-outline {
+      background: transparent;
+      color: #f8fafc;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-rr-outline:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
+    .section-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin: 50px 0 10px;
+      text-align: center;
+    }
+    .section-desc {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    /* Tracks Grid */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .track-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+      border-color: #fff;
+    }
+    .track-cover-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #000;
+    }
+    .track-cover-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+      filter: grayscale(100%) contrast(108%);
+    }
+    .track-card:hover .track-cover-wrap img {
+      transform: scale(1.03);
+    }
+    .btn-play-track {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(5, 5, 6, 0.85);
+      border: 2px solid #fff;
+      color: #fff;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-play-track:hover {
+      background: #fff;
+      color: #050506;
+      transform: scale(1.1);
+    }
+    .track-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .track-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .track-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .track-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .tag-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 36px;
-      max-width: 720px;
-      margin: 40px auto;
+    }
+    .track-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .lyrics-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .lyrics-toggle-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+      border-color: #fff;
+      color: #fff;
+    }
+    .lyrics-collapse {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      background: #08080a;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #cbd5e1;
       white-space: pre-line;
+      border-left: 3px solid #fff;
+    }
+    .lyrics-collapse.open {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Band Ethos */
+    .ethos-box {
+      max-width: 900px;
+      margin: 60px auto 40px;
+      padding: 36px 30px;
+      background: #09090c;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      text-align: center;
+    }
+    .ethos-box h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 26px;
+      color: #fff;
+      margin-top: 0;
+    }
+    .ethos-box p {
       font-size: 16px;
       line-height: 1.8;
       color: #cbd5e1;
-      text-align: center;
+      margin: 0 auto;
+      max-width: 760px;
     }
-    .lyrics-box h3 { color: #fff; margin-bottom: 20px; }
+    /* Sticky Bottom Player */
+    .sticky-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(5, 5, 6, 0.95);
+      border-top: 1px solid #fff;
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 100;
+      transform: translateY(110%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sticky-player.visible {
+      transform: translateY(0);
+    }
+    .player-track-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 200px;
+    }
+    .player-cover {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid #fff;
+      filter: grayscale(100%);
+    }
+    .player-titles h4 {
+      margin: 0;
+      font-size: 15px;
+      color: #fff;
+    }
+    .player-titles p {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+    .player-progress {
+      flex: 1;
+      max-width: 450px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .player-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: #fff;
+      transition: width 0.1s linear;
+    }
+    .player-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .player-close:hover {
+      color: #fff;
+    }
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #64748b;
+    }
+    footer a { color: #fff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
+  <!-- Hero Header -->
   <header class="hero-rr">
     <div class="container">
-      <span class="goth-badge">❄️ 80s GOTHIC ROCK & COLDWAVE</span>
-      <h1 style="font-size: 52px; color: #fff; letter-spacing: -0.02em;">RAUREIF</h1>
-      <p style="font-size: 20px; color: #94a3b8; margin-top: 8px;">» Die kalte Gasse • Doktor-Avalanche-Beat «</p>
-
-      <div class="cover-box" style="margin-top: 30px;">
-        <img src="../assets/images/rr.jpg" alt="Raureif Cover">
-      </div>
-
-      <div style="margin: 24px 0;">
-        <a href="https://www.youtube.com/@Raureif-music" target="_blank" class="btn btn-yt" style="background: #e2e8f0; color: #000; font-weight: 800; font-size: 17px; padding: 14px 32px;">
-          ▶ Offizielles Video auf YouTube ansehen
+      <span class="goth-badge">❄ 80s Gothic Rock • Darkwave • Coldwave</span>
+      <h1 class="band-title">RAUREIF</h1>
+      <p class="band-sub">» Sänger Bird • Doktor Avalanche Motorik • Flanger-Bass & Steve-Stevens-Gitarren «</p>
+      
+      <div class="hero-actions">
+        <a href="https://www.youtube.com/@Raureif-music" target="_blank" class="btn-rr-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Offizieller Kanal @Raureif-music
+        </a>
+        <a href="../" class="btn-rr-outline">
+          ← Zurück zum Megadur Hub
         </a>
       </div>
     </div>
   </header>
 
+  <!-- Repertoire / Tracks Grid -->
   <main class="container">
-    <div class="lyrics-box">
-      <h3>Vollkommen und leer (Single)</h3>
-Der Vorhang fällt, der Beifall schweigt
-Keine Stufe mehr, die nach oben steigt
-Die Vitrine glänzt aus kaltem Blei
-Das Spiel gewonnen – das Spiel vorbei.
+    <h2 class="section-title">Diskografie & Repertoire</h2>
+    <p class="section-desc">Klick auf den Play-Button für den Audio-Hook oder klappe den vollständigen Songtext aus:</p>
 
-<strong>[Refrain]</strong>
-Wer alles hat, sieht Träume sterben!
-Kein Horizont mehr, kein nächster Schritt!
-Der Sieg ist schwerer als jede Last –
-er reißt das letzte Feuer mit!
+    <div class="tracks-grid">
 
-Ich wollte alles.
-Jetzt steh ich hier.
-Allein am Gipfel.
-Und frier in mir.
+      <!-- TRACK 01 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/rr_01.jpg" alt="Raureif – Vollkommen und leer">
+          <button class="btn-play-track" data-audio="../assets/audio/rr_01.wav" data-title="Vollkommen und leer" data-cover="../assets/images/rr_01.jpg" aria-label="Play Track 01">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 01 • Debüt</span>
+          <h3 class="track-name">Vollkommen und leer</h3>
+          <div class="track-tags">
+            <span class="tag-pill">80s Coldwave</span>
+            <span class="tag-pill">Darkwave</span>
+            <span class="tag-pill">145 BPM</span>
+          </div>
+          <p class="track-desc">Sisters-Drive durch die kalte Gasse: Harter Flanger-Bass, schneidende Chorus-Gitarren und das Schattenspiel im Laternenlicht.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-01')">Songtext anzeigen ↓</button>
+          <div id="lyrics-01" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+Kalte Pflastersteine, Laterne flackert matt
+Schritte hallen einsam durch die tote Stadt
+Dein Schatten an der Mauer, verblasst im grauen Dunst
+Alles was wir wollten war vergeudete Kunst
+
+<strong>[Chorus]</strong>
+Vollkommen und leer! Das Herz erfriert zu Stein!
+Wir wollten alles sein und blieben ganz allein!
+Vollkommen und leer! Der Frost schneidet tief!
+Vergessen was uns einst ins Dunkel rief!
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 02 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/rr_02.jpg" alt="Raureif – Vögel der Nacht">
+          <button class="btn-play-track" data-audio="../assets/audio/rr_02.wav" data-title="Vögel der Nacht" data-cover="../assets/images/rr_02.jpg" aria-label="Play Track 02">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 02</span>
+          <h3 class="track-name">Vögel der Nacht</h3>
+          <div class="track-tags">
+            <span class="tag-pill">High-Energy Goth</span>
+            <span class="tag-pill">Post-Punk</span>
+            <span class="tag-pill">160 BPM</span>
+          </div>
+          <p class="track-desc">Treibender Mitternachts-Drive: Schwarze Flügelschläge im Mondlicht, gnadenloser Motorik-Rhythmus und unnachgiebiger Bariton.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-02')">Songtext anzeigen ↓</button>
+          <div id="lyrics-02" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+Schwarz über Dächern, lautlos im Wind
+Augen wie Kohlen, die ewig blind
+Sie kreisen im Kreis, sie warten geduldig
+Niemand ist rein und niemand unschuldig
+
+<strong>[Chorus]</strong>
+Vögel der Nacht! Brecht durch die Wand!
+Reißt die Schatten aus meiner Hand!
+Vögel der Nacht! Wenn die Stunde schlägt,
+wird der Letzte ins Dunkel getragen und gelegt!
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 03 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/rr_03.jpg" alt="Raureif – Goldfisch (Blubb Blubb)">
+          <button class="btn-play-track" data-audio="../assets/audio/rr_03.wav" data-title="Goldfisch (Blubb Blubb)" data-cover="../assets/images/rr_03.jpg" aria-label="Play Track 03">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 03 • Neu</span>
+          <h3 class="track-name">Goldfisch (Blubb Blubb)</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Coldwave</span>
+            <span class="tag-pill">Schabowka-Remake</span>
+            <span class="tag-pill">134 BPM</span>
+          </div>
+          <p class="track-desc">Klaustrophobische Existenz im kalten Basseng: Steve-Stevens-Gitarrenhaken, pumpender Motorik-Beat und trockene Tränen.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-03')">Songtext anzeigen ↓</button>
+          <div id="lyrics-03" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+Die Sonne geht auf, die Sonne geht unter
+Ich gehe mit rauf und ich gehe mit runter
+(Blupp... Blupp...)
+
+<strong>[Verse 2]</strong>
+Ich bin ein Fisch im kleinen Basseng
+Ich drehe meine Runden und die Runden sind eng
+(Blupp... Blupp...)
+
+<strong>[Chorus]</strong>
+Das Bassäng ist tief, meine Augen sind leer!
+Meine Tränen sind trocken und wir weinen sie leer!
+Meine Tränen sind trocken und wir trinken noch mehr!
+Blupp... Blupp... Blupp... Blupp!
+
+<strong>[Verse 3]</strong>
+Manchmal dreh ich meine Runden gerne
+Manchmal bin ich sehr allein
+Manchmal sehe ich in die Ferne
+Ich möcht' ein andrer sein
+(Blupp... Blupp...)
+
+<strong>[Verse 4]</strong>
+Du hast Blupp-Blupp gesagt und siehst mich an
+Wir sind beringt, sind Frau und Mann
+(Blupp... Blupp...)
+
+<strong>[Chorus]</strong>
+Das Bassäng ist tief, meine Augen sind leer!
+Meine Tränen sind trocken und wir weinen sie leer!
+Meine Tränen sind trocken und wir trinken noch mehr!
+Blupp... Blupp... Blupp... Blupp!
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Band Ethos Box -->
+    <div class="ethos-box">
+      <h3>Die Nacht von Raureif</h3>
+      <p>Raureif ist die monochrome Kälte der 80er: Expressionistischer Chiaroscuro-Scherenschnitt, unerbittliche Drum-Machines, pickender Flanger-Bass und schneidende Steve-Stevens-Gitarren. Der stoische Bariton von Sänger Bird führt durch eine Welt aus Reif, Asphalt und Schatten.</p>
     </div>
   </main>
 
+  <!-- Sticky Bottom Player -->
+  <div id="stickyPlayer" class="sticky-player">
+    <div class="player-track-info">
+      <img id="playerCover" class="player-cover" src="../assets/images/rr.jpg" alt="Cover">
+      <div class="player-titles">
+        <h4 id="playerTitle">Titel</h4>
+        <p>Raureif • Audio-Preview</p>
+      </div>
+    </div>
+    <div class="player-progress">
+      <div id="playerProgressBar" class="player-progress-bar"></div>
+    </div>
+    <button id="playerClose" class="player-close" aria-label="Schließen">✕</button>
+  </div>
+
   <footer>
     <div class="container">
-      <p>© 2026 Raureif • <a href="https://www.youtube.com/@Raureif-music" target="_blank" style="color: #cbd5e1;">YouTube @Raureif-music</a></p>
-      <p style="margin-top: 8px; font-size: 11px; opacity: 0.6;">Ein Projekt aus den Megadur Studios • <a href="../" style="color: #64748b;">megadur.de</a></p>
+      <p>© 2026 Raureif • Offizieller Kanal: <a href="https://www.youtube.com/@Raureif-music" target="_blank">YouTube @Raureif-music</a></p>
+      <p style="margin-top: 8px; font-size: 12px; opacity: 0.6;">Produziert von Tilmann Walter in den Megadur Studios • <a href="../">music.megadur.de</a></p>
     </div>
   </footer>
+
+  <script>
+    // Audio Player Controller
+    const audio = new Audio();
+    const stickyPlayer = document.getElementById('stickyPlayer');
+    const playerTitle = document.getElementById('playerTitle');
+    const playerCover = document.getElementById('playerCover');
+    const playerProgressBar = document.getElementById('playerProgressBar');
+    const playerClose = document.getElementById('playerClose');
+    const playButtons = document.querySelectorAll('.btn-play-track');
+
+    let currentBtn = null;
+
+    playButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const audioSrc = btn.getAttribute('data-audio');
+        const title = btn.getAttribute('data-title');
+        const cover = btn.getAttribute('data-cover');
+
+        if (currentBtn === btn && !audio.paused) {
+          audio.pause();
+          btn.textContent = '▶';
+          stickyPlayer.classList.remove('visible');
+          return;
+        }
+
+        if (currentBtn && currentBtn !== btn) {
+          currentBtn.textContent = '▶';
+        }
+
+        audio.src = audioSrc;
+        audio.play().then(() => {
+          btn.textContent = '⏸';
+          currentBtn = btn;
+          playerTitle.textContent = title;
+          playerCover.src = cover;
+          stickyPlayer.classList.add('visible');
+        }).catch(err => {
+          console.error("Playback error:", err);
+        });
+      });
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        playerProgressBar.style.width = pct + '%';
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      if (currentBtn) currentBtn.textContent = '▶';
+      stickyPlayer.classList.remove('visible');
+      playerProgressBar.style.width = '0%';
+    });
+
+    playerClose.addEventListener('click', () => {
+      audio.pause();
+      if (currentBtn) currentBtn.textContent = '▶';
+      stickyPlayer.classList.remove('visible');
+    });
+
+    // Lyrics Accordion Toggle
+    function toggleLyrics(id) {
+      const el = document.getElementById(id);
+      const btn = el.previousElementSibling;
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        btn.textContent = 'Songtext anzeigen ↓';
+      } else {
+        el.classList.add('open');
+        btn.textContent = 'Songtext einklappen ↑';
+      }
+    }
+  </script>
 
 </body>
 </html>

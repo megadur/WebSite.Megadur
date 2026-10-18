@@ -3,81 +3,528 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Piston Drive – 70s Classic Rock & Heartland Shuffle | Offizielle Bandseite</title>
-  <meta name="description" content="Piston Drive: Dreckiger Southern Rock, Röhren-Amp-Wärme, roher 70s Boogie und echte Live-Room-Energie.">
+  <title>Piston Drive – Offizielle Bandseite & Diskografie | 70s Boogie & Heartland Rock</title>
+  <meta name="description" content="Piston Drive: Handgemachter 70s Boogie, Heartland Rock und dreckige Röhrenamp-Wärme. Alle 4 Tracks mit Audio-Hooks, Cover-Artworks & Songtexten. Lead Vocals: Clutch.">
   <link rel="stylesheet" href="../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --accent: #ffaa00;
-      --accent-glow: rgba(255, 170, 0, 0.35);
+      --accent-glow: rgba(255, 170, 0, 0.4);
+      --bg-dark: #0f0c08;
+      --card-bg: #18130d;
+      --card-border: rgba(255, 170, 0, 0.25);
     }
-    body { background: #120e0a; color: #f8fafc; }
+    body {
+      background: var(--bg-dark);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-bottom: 90px;
+    }
     .hero-piston {
-      background: radial-gradient(circle at center, rgba(255, 170, 0, 0.18), transparent 70%);
-      padding: 60px 0 40px;
+      background: radial-gradient(circle at 50% 20%, rgba(255, 170, 0, 0.22), transparent 70%);
+      padding: 50px 20px 30px;
       text-align: center;
+      border-bottom: 1px solid rgba(255, 170, 0, 0.15);
     }
-    .cover-box {
-      max-width: 440px;
-      margin: 0 auto 30px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px var(--accent-glow);
-      border: 3px solid var(--accent);
-    }
-    .cover-box img { width: 100%; display: block; }
     .rock-badge {
       display: inline-block;
       background: var(--accent);
       color: #111;
       font-weight: 800;
+      font-size: 13px;
       padding: 6px 16px;
       border-radius: 20px;
       letter-spacing: 0.12em;
-      margin-bottom: 16px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .lyrics-box {
-      background: #1c1712;
-      border: 1px solid rgba(255, 170, 0, 0.3);
-      border-radius: 16px;
-      padding: 36px;
-      max-width: 720px;
-      margin: 40px auto;
-      white-space: pre-line;
+    .band-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: clamp(40px, 7vw, 68px);
+      font-weight: 900;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .band-sub {
+      font-size: 18px;
+      color: #ffc44d;
+      margin: 10px 0 24px;
+      font-weight: 500;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn-rock-primary {
+      background: var(--accent);
+      color: #111;
+      font-weight: 800;
       font-size: 16px;
-      line-height: 1.8;
-      color: #e2e8f0;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px var(--accent-glow);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-rock-primary:hover {
+      background: #ffbb33;
+      transform: translateY(-2px);
+    }
+    .btn-rock-outline {
+      background: transparent;
+      color: #ffaa00;
+      border: 2px solid var(--accent);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-rock-outline:hover {
+      background: rgba(255, 170, 0, 0.15);
+      color: #fff;
+    }
+    .section-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin: 50px 0 10px;
       text-align: center;
     }
-    .lyrics-box h3 { color: var(--accent); margin-bottom: 20px; }
+    .section-desc {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    /* Catalog Grid */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .track-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border-color: var(--accent);
+    }
+    .track-cover-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #000;
+    }
+    .track-cover-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .track-card:hover .track-cover-wrap img {
+      transform: scale(1.03);
+    }
+    .btn-play-track {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(18, 14, 10, 0.85);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-play-track:hover {
+      background: var(--accent);
+      color: #111;
+      transform: scale(1.1);
+    }
+    .track-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .track-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .track-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .track-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .tag-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 12px;
+      background: rgba(255, 170, 0, 0.12);
+      color: #ffc44d;
+      border: 1px solid rgba(255, 170, 0, 0.25);
+    }
+    .track-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .lyrics-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .lyrics-toggle-btn:hover {
+      background: rgba(255, 170, 0, 0.2);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .lyrics-collapse {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      background: #110e0a;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      white-space: pre-line;
+      border-left: 3px solid var(--accent);
+    }
+    .lyrics-collapse.open {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Band Ethos Section */
+    .ethos-box {
+      max-width: 900px;
+      margin: 60px auto 40px;
+      padding: 36px 30px;
+      background: #14100b;
+      border: 1px solid rgba(255, 170, 0, 0.25);
+      border-radius: 20px;
+      text-align: center;
+    }
+    .ethos-box h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 26px;
+      color: #ffaa00;
+      margin-top: 0;
+    }
+    .ethos-box p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #cbd5e1;
+      margin: 0 auto;
+      max-width: 760px;
+    }
+    /* Sticky Bottom Player */
+    .sticky-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 12, 8, 0.95);
+      border-top: 1px solid var(--accent);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 100;
+      transform: translateY(110%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sticky-player.visible {
+      transform: translateY(0);
+    }
+    .player-track-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 200px;
+    }
+    .player-cover {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--accent);
+    }
+    .player-titles h4 {
+      margin: 0;
+      font-size: 15px;
+      color: #fff;
+    }
+    .player-titles p {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--accent);
+    }
+    .player-progress {
+      flex: 1;
+      max-width: 450px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .player-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+    .player-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .player-close:hover {
+      color: #fff;
+    }
+    footer {
+      border-top: 1px solid rgba(255, 170, 0, 0.15);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #64748b;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
+  <!-- Hero Header -->
   <header class="hero-piston">
     <div class="container">
-      <span class="rock-badge">🎸 70s BOOGIE & HEARTLAND ROCK</span>
-      <h1 style="font-size: 52px; color: #fff; letter-spacing: -0.02em;">PISTON DRIVE</h1>
-      <p style="font-size: 20px; color: #ffc44d; margin-top: 8px;">» Two Towns Behind • Lead Vocals: Clutch «</p>
-
-      <div class="cover-box" style="margin-top: 30px;">
-        <a href="https://www.youtube.com/@PistonDrive-rock" target="_blank" title="Video auf YouTube ansehen">
-          <img src="../assets/images/pd.jpg" alt="Piston Drive Cover">
+      <span class="rock-badge">🎸 70s Boogie • Classic Rock • Heartland Shuffle</span>
+      <h1 class="band-title">PISTON DRIVE</h1>
+      <p class="band-sub">» Lead Vocals: Clutch • Echte Röhrenverzerrung • Rough Live-Room Edges «</p>
+      
+      <div class="hero-actions">
+        <a href="https://www.youtube.com/@PistonDrive-rock" target="_blank" class="btn-rock-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Offizieller Kanal @PistonDrive-rock
         </a>
-      </div>
-
-      <div style="margin: 24px 0;">
-        <a href="https://www.youtube.com/@PistonDrive-rock" target="_blank" class="btn btn-yt" style="background: var(--accent); color: #111; font-weight: 800; font-size: 17px; padding: 14px 32px;">
-          ▶ Offizielles Video auf YouTube ansehen
+        <a href="../" class="btn-rock-outline">
+          ← Zurück zum Megadur Hub
         </a>
       </div>
     </div>
   </header>
 
+  <!-- Repertoire / Tracks Grid -->
   <main class="container">
-    <div class="lyrics-box">
-      <h3>Two Towns Behind (Single)</h3>
+    <h2 class="section-title">Diskografie & Alle Tracks</h2>
+    <p class="section-desc">Klick auf den Play-Button für den Hook-Ausschnitt oder klappe den vollständigen Songtext aus:</p>
+
+    <div class="tracks-grid">
+
+      <!-- TRACK 01 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/pd_01.jpg" alt="Piston Drive – Your Old Key Fits">
+          <button class="btn-play-track" data-audio="../assets/audio/pd_01.wav" data-title="Your Old Key Fits" data-cover="../assets/images/pd_01.jpg" aria-label="Play Track 01">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 01</span>
+          <h3 class="track-name">Your Old Key Fits</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Melodic Garage</span>
+            <span class="tag-pill">Indie Rock</span>
+            <span class="tag-pill">135 BPM</span>
+          </div>
+          <p class="track-desc">Unerwartete Heimkehr im Regen: Jacke auf dem Küchenstuhl, alte Notiz am Telefon und die offene Tür ohne Fragen.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-01')">Songtext anzeigen ↓</button>
+          <div id="lyrics-01" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+You left your coat on the kitchen chair
+Dust on the cuffs, rain in your hair
+I found your note by the telephone
+Three crooked words: “I’m coming home”
+
+<strong>[Pre-Chorus]</strong>
+The clock keeps chewing through the night
+I hold that paper to the light
+
+<strong>[Chorus]</strong>
+Come on back through the front door
+I won’t ask what you ran for
+There’s a place at the table still
+And your old key fits if you will
+
+<strong>[Verse 2]</strong>
+The sink drips slow in the quiet room
+Your chipped blue cup still holds its stain
+I kept the porch bulb burning late
+Though every passing car was just the rain
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 02 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/pd_02.jpg" alt="Piston Drive – Call It Free">
+          <button class="btn-play-track" data-audio="../assets/audio/pd_02.wav" data-title="Call It Free" data-cover="../assets/images/pd_02.jpg" aria-label="Play Track 02">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 02</span>
+          <h3 class="track-name">Call It Free</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Southern Rock</span>
+            <span class="tag-pill">Shuffle Groove</span>
+            <span class="tag-pill">120 BPM</span>
+          </div>
+          <p class="track-desc">Ehrlicher Heartland-Shuffle: Staubige Stiefel, halbleerer Tank und die Weite der Straße ohne Schulden an der Bank.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-02')">Songtext anzeigen ↓</button>
+          <div id="lyrics-02" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+Dusty old boots and a half-full tank
+Never owed a dime to the county bank
+Long white line when the sun goes down
+Leaving all the ghosts in a sleepy town
+
+<strong>[Chorus]</strong>
+Call it lonely, friend, but I call it free
+Ain't a cage in this world that was made for me
+Yeah I walk alone and my stride is wide
+With a pocket full of road and a fire inside
+Call it lonely – but I call it free!
+
+<strong>[Verse 2]</strong>
+Cold wind whistling through a rusted door
+Don't need a welcome on an old pine floor
+Got a six-string humming in the shotgun seat
+And the steady rhythm of the desert heat
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 03 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/pd_03.jpg" alt="Piston Drive – All or Nothing!">
+          <button class="btn-play-track" data-audio="../assets/audio/pd_03.wav" data-title="All or Nothing!" data-cover="../assets/images/pd_03.jpg" aria-label="Play Track 03">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 03</span>
+          <h3 class="track-name">All or Nothing!</h3>
+          <div class="track-tags">
+            <span class="tag-pill">70s Boogie Rock</span>
+            <span class="tag-pill">Glam / Suzi Vibe</span>
+            <span class="tag-pill">155 BPM</span>
+          </div>
+          <p class="track-desc">Hochenergetischer Boogie-Drive mit Handclaps und treibendem Bass: Alles auf eine Karte – Walk away or stay!</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-03')">Songtext anzeigen ↓</button>
+          <div id="lyrics-03" class="lyrics-collapse">
+<strong>[Intro]</strong>
+"One! Two! One, two, three, go!"
+[Stomping boogie beat, overdriven guitar riff, handclaps]
+
+<strong>[Verse 1]</strong>
+Heavy pulse, my engine’s running wild in the dark!
+This restless longing is a razor-sharp spark!
+Your fading voice gets lost in the cold night air
+The headlights cut through, but you’re never really there!
+
+<strong>[Chorus]</strong>
+All or nothing! Tonight’s the night!
+Step out from the shadows into the light!
+Rolling loaded dice – walk away or stay!
+Make your move! Clear the way!
+It's all or nothing!
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 04 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/pd_04.jpg" alt="Piston Drive – Two Towns Behind">
+          <button class="btn-play-track" data-audio="../assets/audio/pd_04.wav" data-title="Two Towns Behind" data-cover="../assets/images/pd_04.jpg" aria-label="Play Track 04">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 04 • Single</span>
+          <h3 class="track-name">Two Towns Behind</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Heartland Rock</span>
+            <span class="tag-pill">Focus Single</span>
+            <span class="tag-pill">160 BPM</span>
+          </div>
+          <p class="track-desc">Kalter Morgenkaffee, Zündschlüssel im Cockpit und 160 BPM Vollgas: Kopf hoch, Staub abschütteln und das Radio aufdrehen!</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-04')">Songtext anzeigen ↓</button>
+          <div id="lyrics-04" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
 Cold morning coffee, key in the dash
 Old leather jacket, burning out fast
 Fifty miles behind me, a hundred to go
@@ -89,15 +536,121 @@ Turn the rusted knob until you hit the radio!
 I'm running down the highway, burning through the night!
 Don't need a destination – just the headlights burning bright!
 Shaking off the dust... two towns behind!
+
+<strong>[Verse 2]</strong>
+Neon sign flicker on an empty diner wall
+Cold asphalt whisper, answer to the call
+Gravel in the tread, pedal to the floor
+Ain't looking back through that rearview mirror no more!
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Band Ethos Box -->
+    <div class="ethos-box">
+      <h3>The Spirit of Piston Drive</h3>
+      <p>Piston Drive steht für das Ethos des aufrechten Individuums, handwerklichen Schweiß, knurrende Röhren-Amps und den Klang heißer V-Twin-Motoren auf dem Asphalt. Kein steriler KI-Digitalglanz, kein Autotune – sondern raue Proberaum-Kanten, die den Staub von der Seele fegen.</p>
     </div>
   </main>
 
+  <!-- Sticky Bottom Player -->
+  <div id="stickyPlayer" class="sticky-player">
+    <div class="player-track-info">
+      <img id="playerCover" class="player-cover" src="../assets/images/pd.jpg" alt="Cover">
+      <div class="player-titles">
+        <h4 id="playerTitle">Titel</h4>
+        <p>Piston Drive • Hook-Preview</p>
+      </div>
+    </div>
+    <div class="player-progress">
+      <div id="playerProgressBar" class="player-progress-bar"></div>
+    </div>
+    <button id="playerClose" class="player-close" aria-label="Schließen">✕</button>
+  </div>
+
   <footer>
     <div class="container">
-      <p>© 2026 Piston Drive • <a href="https://www.youtube.com/@PistonDrive-rock" target="_blank" style="color: #ffaa00;">YouTube @PistonDrive-rock</a></p>
-      <p style="margin-top: 8px; font-size: 11px; opacity: 0.6;">Ein Projekt aus den Megadur Studios • <a href="../" style="color: #94a3b8;">megadur.de</a></p>
+      <p>© 2026 Piston Drive • Offizieller Kanal: <a href="https://www.youtube.com/@PistonDrive-rock" target="_blank">YouTube @PistonDrive-rock</a></p>
+      <p style="margin-top: 8px; font-size: 12px; opacity: 0.6;">Produziert von Tilmann Walter in den Megadur Studios • <a href="../">music.megadur.de</a></p>
     </div>
   </footer>
+
+  <script>
+    // Audio Player Controller
+    const audio = new Audio();
+    const stickyPlayer = document.getElementById('stickyPlayer');
+    const playerTitle = document.getElementById('playerTitle');
+    const playerCover = document.getElementById('playerCover');
+    const playerProgressBar = document.getElementById('playerProgressBar');
+    const playerClose = document.getElementById('playerClose');
+    const playButtons = document.querySelectorAll('.btn-play-track');
+
+    let currentBtn = null;
+
+    playButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const audioSrc = btn.getAttribute('data-audio');
+        const title = btn.getAttribute('data-title');
+        const cover = btn.getAttribute('data-cover');
+
+        if (currentBtn === btn && !audio.paused) {
+          audio.pause();
+          btn.textContent = '▶';
+          stickyPlayer.classList.remove('visible');
+          return;
+        }
+
+        if (currentBtn && currentBtn !== btn) {
+          currentBtn.textContent = '▶';
+        }
+
+        audio.src = audioSrc;
+        audio.play().then(() => {
+          btn.textContent = '⏸';
+          currentBtn = btn;
+          playerTitle.textContent = title;
+          playerCover.src = cover;
+          stickyPlayer.classList.add('visible');
+        }).catch(err => {
+          console.error("Playback error:", err);
+        });
+      });
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        playerProgressBar.style.width = pct + '%';
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      if (currentBtn) currentBtn.textContent = '▶';
+      stickyPlayer.classList.remove('visible');
+      playerProgressBar.style.width = '0%';
+    });
+
+    playerClose.addEventListener('click', () => {
+      audio.pause();
+      if (currentBtn) currentBtn.textContent = '▶';
+      stickyPlayer.classList.remove('visible');
+    });
+
+    // Lyrics Accordion Toggle
+    function toggleLyrics(id) {
+      const el = document.getElementById(id);
+      const btn = el.previousElementSibling;
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        btn.textContent = 'Songtext anzeigen ↓';
+      } else {
+        el.classList.add('open');
+        btn.textContent = 'Songtext einklappen ↑';
+      }
+    }
+  </script>
 
 </body>
 </html>

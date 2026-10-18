@@ -3,108 +3,594 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mecklenburg – Nordic Post-Rock & Desert Roots | Offizielle Bandseite</title>
-  <meta name="description" content="Mecklenburg: Archaische DADGAD-Klanglandschaften, weite Horizonte, pumpendes Harmonium und der warme Bariton von Sänger Ox.">
+  <title>Mecklenburg – Offizielle Bandseite & Diskografie | Nordic Post-Rock & Desert Roots</title>
+  <meta name="description" content="Mecklenburg: Archaische DADGAD-Klanglandschaften, weite Horizonte, pumpendes Harmonium und der warme Bariton von Sänger Ox. Alle 3 Tracks mit Audio-Hooks & Lyrics.">
   <link rel="stylesheet" href="../style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #94a3b8;
-      --accent-glow: rgba(148, 163, 184, 0.25);
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.35);
+      --bg-dark: #070a0f;
+      --card-bg: #0d131d;
+      --card-border: rgba(56, 189, 248, 0.2);
     }
-    body { background: #0c0f14; color: #e2e8f0; }
+    body {
+      background: var(--bg-dark);
+      color: #f1f5f9;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding-bottom: 90px;
+    }
     .hero-meck {
-      background: radial-gradient(circle at center, rgba(148, 163, 184, 0.15), transparent 70%);
-      padding: 60px 0 40px;
+      background: radial-gradient(circle at 50% 20%, rgba(56, 189, 248, 0.18), transparent 70%);
+      padding: 50px 20px 30px;
       text-align: center;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.15);
     }
-    .cover-box {
-      max-width: 440px;
-      margin: 0 auto 30px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px var(--accent-glow);
-      border: 3px solid var(--accent);
-    }
-    .cover-box img { width: 100%; display: block; }
     .nordic-badge {
       display: inline-block;
-      background: rgba(148, 163, 184, 0.2);
-      color: #f1f5f9;
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.35);
       font-weight: 700;
-      padding: 6px 16px;
+      font-size: 13px;
+      padding: 6px 18px;
       border-radius: 20px;
-      letter-spacing: 0.15em;
-      margin-bottom: 16px;
-      border: 1px solid var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .lyrics-box {
-      background: #121720;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      border-radius: 16px;
-      padding: 36px;
-      max-width: 720px;
-      margin: 40px auto;
+    .band-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: clamp(40px, 7vw, 68px);
+      font-weight: 900;
+      color: #fff;
+      margin: 0;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .band-sub {
+      font-size: 18px;
+      color: #bae6fd;
+      margin: 10px 0 24px;
+      font-weight: 500;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn-meck-primary {
+      background: var(--accent);
+      color: #0c1524;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px var(--accent-glow);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-meck-primary:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+    }
+    .btn-meck-outline {
+      background: transparent;
+      color: #bae6fd;
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 10px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-meck-outline:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #fff;
+    }
+    .section-title {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin: 50px 0 10px;
+      text-align: center;
+    }
+    .section-desc {
+      text-align: center;
+      color: #94a3b8;
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+    /* Tracks Grid */
+    .tracks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .track-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .track-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border-color: var(--accent);
+    }
+    .track-cover-wrap {
+      position: relative;
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      background: #000;
+    }
+    .track-cover-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .track-card:hover .track-cover-wrap img {
+      transform: scale(1.03);
+    }
+    .btn-play-track {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(7, 10, 15, 0.85);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-play-track:hover {
+      background: var(--accent);
+      color: #0c1524;
+      transform: scale(1.1);
+    }
+    .track-content {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .track-num {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .track-name {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 8px;
+    }
+    .track-tags {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .tag-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 12px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .track-desc {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+    .lyrics-toggle-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .lyrics-toggle-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .lyrics-collapse {
+      display: none;
+      margin-top: 14px;
+      padding: 16px;
+      background: #090e17;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #cbd5e1;
       white-space: pre-line;
+      border-left: 3px solid var(--accent);
+    }
+    .lyrics-collapse.open {
+      display: block;
+      animation: fadeIn 0.25s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Band Ethos */
+    .ethos-box {
+      max-width: 900px;
+      margin: 60px auto 40px;
+      padding: 36px 30px;
+      background: #0a101a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 20px;
+      text-align: center;
+    }
+    .ethos-box h3 {
+      font-family: 'Cabinet Grotesk', sans-serif;
+      font-size: 26px;
+      color: #7dd3fc;
+      margin-top: 0;
+    }
+    .ethos-box p {
       font-size: 16px;
       line-height: 1.8;
       color: #cbd5e1;
-      text-align: center;
+      margin: 0 auto;
+      max-width: 760px;
     }
-    .lyrics-box h3 { color: #f1f5f9; margin-bottom: 20px; }
+    /* Sticky Bottom Player */
+    .sticky-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(7, 10, 15, 0.95);
+      border-top: 1px solid var(--accent);
+      backdrop-filter: blur(12px);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 100;
+      transform: translateY(110%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .sticky-player.visible {
+      transform: translateY(0);
+    }
+    .player-track-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 200px;
+    }
+    .player-cover {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--accent);
+    }
+    .player-titles h4 {
+      margin: 0;
+      font-size: 15px;
+      color: #fff;
+    }
+    .player-titles p {
+      margin: 2px 0 0;
+      font-size: 12px;
+      color: var(--accent);
+    }
+    .player-progress {
+      flex: 1;
+      max-width: 450px;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .player-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+    }
+    .player-close {
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .player-close:hover {
+      color: #fff;
+    }
+    footer {
+      border-top: 1px solid rgba(56, 189, 248, 0.15);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #64748b;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
+  <!-- Hero Header -->
   <header class="hero-meck">
     <div class="container">
-      <span class="nordic-badge">🌲 NORDIC POST-ROCK & DESERT ROOTS</span>
-      <h1 style="font-size: 52px; color: #f1f5f9; letter-spacing: -0.02em;">MECKLENBURG</h1>
-      <p style="font-size: 20px; color: #94a3b8; margin-top: 8px;">» DADGAD-Drone • Feldstein-Hall • Gesang: Ox «</p>
-
-      <div class="cover-box" style="margin-top: 30px;">
-        <img src="../assets/images/mk.jpg" alt="Mecklenburg – Debüt-Single">
-      </div>
-
-      <div style="margin: 24px 0;">
-        <a href="https://www.youtube.com/@Mecklenburg-music" target="_blank" class="btn btn-yt" style="background: #334155; border: 1px solid #94a3b8; font-size: 17px; padding: 14px 32px;">
-          ▶ Offizielles Video auf YouTube ansehen
+      <span class="nordic-badge">🌊 Nordic Post-Rock • DADGAD-Drone • Dark Roots</span>
+      <h1 class="band-title">MECKLENBURG</h1>
+      <p class="band-sub">» Sänger Ox • Karge nordische Weite • Pumpendes Harmonium & Feldstein-Hall «</p>
+      
+      <div class="hero-actions">
+        <a href="https://www.youtube.com/@Mecklenburg-music" target="_blank" class="btn-meck-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          Offizieller Kanal @Mecklenburg-music
+        </a>
+        <a href="../" class="btn-meck-outline">
+          ← Zurück zum Megadur Hub
         </a>
       </div>
     </div>
   </header>
 
+  <!-- Repertoire / Tracks Grid -->
   <main class="container">
-    <div class="lyrics-box">
-      <h3>Mecklenburg (Debüt-Single)</h3>
-Kalter Wind streift über Sand.
-Grauer Himmel, weites Land.
-Feldsteinmauern halten Ruh –
-ich hör dem leisen Rauschen zu.
-Nichts, was drängt, und nichts, was eilt –
-hier ist der Ort, wo die Zeit verweilt.
+    <h2 class="section-title">Diskografie & Repertoire</h2>
+    <p class="section-desc">Klick auf den Play-Button für den Audio-Hook oder klappe den Text aus:</p>
 
-<strong>[Refrain]</strong>
-Weite Felder und Alleen,
-tiefe Wälder, große Seen.
-Klare Menschen durch und durch –
-Einfach und ehrlich: Mecklenburg!
+    <div class="tracks-grid">
 
-Schwerer Lehm und Pflasterstein.
-Hier bin ich mit mir allein.
-Herbsteslicht auf rauhem Moor,
-Nebel vor dem Scheunentor.
-Ich hab keinen Grund mehr, wegzuziehn –
-wohin die Wolken auch entfliehn.
+      <!-- TRACK 01 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/mk_01.jpg" alt="Mecklenburg – Mecklenburg">
+          <button class="btn-play-track" data-audio="../assets/audio/mk_01.wav" data-title="Mecklenburg" data-cover="../assets/images/mk_01.jpg" aria-label="Play Track 01">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 01 • Debüt-Single</span>
+          <h3 class="track-name">Mecklenburg</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Nordic Post-Rock</span>
+            <span class="tag-pill">DADGAD Drone</span>
+            <span class="tag-pill">88 BPM</span>
+          </div>
+          <p class="track-desc">Das Manifest der Landschaft: Karge Weite, niedriger Himmel, Alleen im Nebel und die befreiende Wall of Sound.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-01')">Songtext anzeigen ↓</button>
+          <div id="lyrics-01" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+Kopfsteinpflaster, Wind im Ried,
+eine Krähe fliegt ihr Lied.
+Hinterm Deich das graue Meer,
+Ackerfurchen, meilenweit und schwer.
+
+<strong>[Pre-Chorus]</strong>
+Nichts geschenkt und nichts geliehen,
+wolkenverhangen zieh'n.
+
+<strong>[Chorus]</strong>
+Einfach und ehrlich – das ist mein Land!
+Aus Schotter, Wind und Lehm gebrannt!
+Hier steh ich fest, hier schlägt mein Herz,
+stiller Stolz und alter Schmerz:
+Mecklenburg!
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 02 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/mk_02.jpg" alt="Mecklenburg – Joguleit">
+          <button class="btn-play-track" data-audio="../assets/audio/mk_02.wav" data-title="Joguleit" data-cover="../assets/images/mk_02.jpg" aria-label="Play Track 02">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 02</span>
+          <h3 class="track-name">Joguleit</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Nordic Folk-Rock</span>
+            <span class="tag-pill">Graßhoff-Ballade</span>
+            <span class="tag-pill">125 BPM</span>
+          </div>
+          <p class="track-desc">Treibende Seemanns- & Halunkenpostille nach Fritz Graßhoff (1947): Der alte Seemann Joguleit, Branntwein und raue Hafenluft.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-02')">Songtext anzeigen ↓</button>
+          <div id="lyrics-02" class="lyrics-collapse">
+<strong>[Verse 1]</strong>
+Als Joguleit vom Schiffe ging,
+ein Ohrgehänge golden blinkt,
+er sah die rote Schenke stehn,
+wollt' einmal noch nach Mädchen sehn.
+
+<strong>[Chorus]</strong>
+He, Joguleit! Der Wind weht kalt!
+Der Branntwein brennt, die Nacht wird alt!
+He, Joguleit! Trink aus den Krug,
+das Meer hat Schiffe nie genug!
+          </div>
+        </div>
+      </article>
+
+      <!-- TRACK 03 -->
+      <article class="track-card">
+        <div class="track-cover-wrap">
+          <img src="../assets/images/mk_03.jpg" alt="Mecklenburg – Wälder, Hügel, Flüsse und Seen">
+          <button class="btn-play-track" data-audio="../assets/audio/mk_03.wav" data-title="Wälder, Hügel, Flüsse und Seen" data-cover="../assets/images/mk_03.jpg" aria-label="Play Track 03">▶</button>
+        </div>
+        <div class="track-content">
+          <span class="track-num">Track 03 • Neu</span>
+          <h3 class="track-name">Wälder, Hügel, Flüsse und Seen</h3>
+          <div class="track-tags">
+            <span class="tag-pill">Instrumental</span>
+            <span class="tag-pill">Post-Rock Ambient</span>
+            <span class="tag-pill">85 BPM</span>
+          </div>
+          <p class="track-desc">Reine instrumentale Weite: Schwebende Hallfahnen, meditative DADGAD-Drone-Gitarren und das Rauschen mecklenburgischer Alleen.</p>
+          <button class="lyrics-toggle-btn" onclick="toggleLyrics('lyrics-03')">Info & Stimmung anzeigen ↓</button>
+          <div id="lyrics-03" class="lyrics-collapse">
+<strong>[Instrumentalwerk • 03:08 min]</strong>
+Ein rein instrumentales Klanggemälde über die Urlandschaft des Nordostens:
+• Meditative DADGAD-Drone-Akustikgitarre
+• Diffuser Hall (Feldsteinkirchen-Klang)
+• Warmer, unerschütterlicher Flatwound-Bass
+• Epische Dynamik ohne Worte – von der stillen Waldlichtung bis zur erhabenen Weite des Horizonts.
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Band Ethos Box -->
+    <div class="ethos-box">
+      <h3>Die Seele von Mecklenburg</h3>
+      <p>Mecklenburg ist kein schneller Stadionrock. Es ist die klangliche Übersetzung der kargen Weite, der Schwere mecklenburgischer Böden und der archaischen Dorfromantik: DADGAD-Gitarren, pumpendes Harmonium und der tiefe, feierliche Bariton von Sänger Ox.</p>
     </div>
   </main>
 
+  <!-- Sticky Bottom Player -->
+  <div id="stickyPlayer" class="sticky-player">
+    <div class="player-track-info">
+      <img id="playerCover" class="player-cover" src="../assets/images/mk.jpg" alt="Cover">
+      <div class="player-titles">
+        <h4 id="playerTitle">Titel</h4>
+        <p>Mecklenburg • Audio-Preview</p>
+      </div>
+    </div>
+    <div class="player-progress">
+      <div id="playerProgressBar" class="player-progress-bar"></div>
+    </div>
+    <button id="playerClose" class="player-close" aria-label="Schließen">✕</button>
+  </div>
+
   <footer>
     <div class="container">
-      <p>© 2026 Mecklenburg • <a href="https://www.youtube.com/@Mecklenburg-music" target="_blank" style="color: #94a3b8;">YouTube @Mecklenburg-music</a></p>
-      <p style="margin-top: 8px; font-size: 11px; opacity: 0.6;">Ein Projekt aus den Megadur Studios • <a href="../" style="color: #64748b;">megadur.de</a></p>
+      <p>© 2026 Mecklenburg • Offizieller Kanal: <a href="https://www.youtube.com/@Mecklenburg-music" target="_blank">YouTube @Mecklenburg-music</a></p>
+      <p style="margin-top: 8px; font-size: 12px; opacity: 0.6;">Produziert von Tilmann Walter in den Megadur Studios • <a href="../">music.megadur.de</a></p>
     </div>
   </footer>
+
+  <script>
+    // Audio Player Controller
+    const audio = new Audio();
+    const stickyPlayer = document.getElementById('stickyPlayer');
+    const playerTitle = document.getElementById('playerTitle');
+    const playerCover = document.getElementById('playerCover');
+    const playerProgressBar = document.getElementById('playerProgressBar');
+    const playerClose = document.getElementById('playerClose');
+    const playButtons = document.querySelectorAll('.btn-play-track');
+
+    let currentBtn = null;
+
+    playButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const audioSrc = btn.getAttribute('data-audio');
+        const title = btn.getAttribute('data-title');
+        const cover = btn.getAttribute('data-cover');
+
+        if (currentBtn === btn && !audio.paused) {
+          audio.pause();
+          btn.textContent = '▶';
+          stickyPlayer.classList.remove('visible');
+          return;
+        }
+
+        if (currentBtn && currentBtn !== btn) {
+          currentBtn.textContent = '▶';
+        }
+
+        audio.src = audioSrc;
+        audio.play().then(() => {
+          btn.textContent = '⏸';
+          currentBtn = btn;
+          playerTitle.textContent = title;
+          playerCover.src = cover;
+          stickyPlayer.classList.add('visible');
+        }).catch(err => {
+          console.error("Playback error:", err);
+        });
+      });
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        playerProgressBar.style.width = pct + '%';
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      if (currentBtn) currentBtn.textContent = '▶';
+      stickyPlayer.classList.remove('visible');
+      playerProgressBar.style.width = '0%';
+    });
+
+    playerClose.addEventListener('click', () => {
+      audio.pause();
+      if (currentBtn) currentBtn.textContent = '▶';
+      stickyPlayer.classList.remove('visible');
+    });
+
+    // Lyrics Accordion Toggle
+    function toggleLyrics(id) {
+      const el = document.getElementById(id);
+      const btn = el.previousElementSibling;
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
+        btn.textContent = id === 'lyrics-03' ? 'Info & Stimmung anzeigen ↓' : 'Songtext anzeigen ↓';
+      } else {
+        el.classList.add('open');
+        btn.textContent = 'Einklappen ↑';
+      }
+    }
+  </script>
 
 </body>
 </html>
